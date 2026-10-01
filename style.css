@@ -4,373 +4,316 @@
     box-sizing: border-box;
 }
 
+
 body {
-    min-height: 100vh;
-    background: #020617;
+    background: #0f172a;
+
     color: white;
+
     font-family: Arial, sans-serif;
+
     text-align: center;
-    overflow-x: hidden;
 }
 
-/* TÍTULO */
 
-header {
-    padding: 20px;
-}
+h1 {
+    margin: 20px;
 
-header h1 {
     color: #facc15;
-    font-size: 35px;
-    text-shadow: 0 0 15px #facc15;
-}
 
-header p {
-    margin-top: 5px;
-    color: #94a3b8;
+    text-shadow:
+        0 0 10px #facc15;
 }
 
 
-/* HUD */
+/* =========================
+   PLACAR
+========================= */
 
-.hud {
-    width: 900px;
-    max-width: 95%;
-    margin: 0 auto 10px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.player-info {
-    width: 280px;
-    font-weight: bold;
-}
-
-.red-info {
-    text-align: right;
-}
-
-.health-bar {
-    width: 100%;
-    height: 22px;
-
-    margin-top: 5px;
-
-    background: #111827;
-
-    border: 2px solid white;
-    border-radius: 20px;
-
-    overflow: hidden;
-}
-
-#vida1 {
-    width: 100%;
-    height: 100%;
-    background: #38bdf8;
-    transition: width 0.2s;
-}
-
-#vida2 {
-    width: 100%;
-    height: 100%;
-    background: #fb7185;
-    transition: width 0.2s;
-}
-
-.score {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    font-size: 25px;
-    font-weight: bold;
-}
-
-#placar1 {
-    color: #38bdf8;
-}
-
-#placar2 {
-    color: #fb7185;
-}
-
-
-/* ARENA */
-
-#game {
-    position: relative;
+.placar {
 
     width: 900px;
-    height: 500px;
 
     max-width: 95%;
 
     margin: auto;
 
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.placar h3 {
+    margin-bottom: 5px;
+}
+
+
+#pontos {
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: #facc15;
+}
+
+
+/* =========================
+   BARRAS DE VIDA
+========================= */
+
+.barra {
+
+    width: 250px;
+
+    height: 20px;
+
+    background: #020617;
+
+    border: 2px solid white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+#vida1 {
+
+    width: 100%;
+
+    height: 100%;
+
+    background: #3b82f6;
+}
+
+
+#vida2 {
+
+    width: 100%;
+
+    height: 100%;
+
+    background: #ef4444;
+}
+
+
+/* =========================
+   ARENA
+========================= */
+
+#arena {
+
+    position: relative;
+
+    width: 900px;
+
+    height: 500px;
+
+    max-width: 95%;
+
+    margin: 15px auto;
+
     overflow: hidden;
 
-    border: 4px solid #334155;
-    border-radius: 15px;
-
-    background-color: #020617;
+    background-color: #1e293b;
 
     background-image:
+
         linear-gradient(
-            rgba(56, 189, 248, 0.08) 1px,
+            rgba(255,255,255,0.05) 1px,
             transparent 1px
         ),
+
         linear-gradient(
             90deg,
-            rgba(56, 189, 248, 0.08) 1px,
+            rgba(255,255,255,0.05) 1px,
             transparent 1px
         );
 
     background-size: 40px 40px;
 
+    border: 5px solid #475569;
+
+    border-radius: 15px;
+
     box-shadow:
-        0 0 25px rgba(56, 189, 248, 0.25),
-        inset 0 0 50px #000;
+        0 0 30px rgba(0,0,0,0.7);
 }
 
 
-/* JOGADORES */
+/* =========================
+   JOGADORES
+========================= */
 
 .jogador {
+
     position: absolute;
 
-    width: 42px;
-    height: 42px;
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 10px;
+
+    z-index: 5;
+}
+
+
+.azul {
+
+    background: #2563eb;
+
+    border: 3px solid #60a5fa;
+
+    box-shadow:
+        0 0 15px #2563eb;
+}
+
+
+.vermelho {
+
+    background: #dc2626;
+
+    border: 3px solid #f87171;
+
+    box-shadow:
+        0 0 15px #dc2626;
+}
+
+
+/* =========================
+   OBSTÁCULOS
+========================= */
+
+.bloco {
+
+    position: absolute;
+
+    background: #475569;
+
+    border: 3px solid #94a3b8;
+
+    border-radius: 8px;
+}
+
+
+.bloco1 {
+
+    width: 150px;
+
+    height: 35px;
+
+    left: 375px;
+
+    top: 100px;
+}
+
+
+.bloco2 {
+
+    width: 35px;
+
+    height: 150px;
+
+    left: 250px;
+
+    top: 200px;
+}
+
+
+.bloco3 {
+
+    width: 35px;
+
+    height: 150px;
+
+    right: 250px;
+
+    top: 200px;
+}
+
+
+/* =========================
+   TIROS
+========================= */
+
+.tiro {
+
+    position: absolute;
+
+    width: 12px;
+
+    height: 12px;
 
     border-radius: 50%;
 
     z-index: 10;
 }
 
-.azul {
-    background: #0ea5e9;
 
-    border: 3px solid #7dd3fc;
+.tiroAzul {
 
-    box-shadow:
-        0 0 10px #0ea5e9,
-        0 0 25px #0284c7;
-}
-
-.vermelho {
-    background: #ef4444;
-
-    border: 3px solid #fca5a5;
-
-    box-shadow:
-        0 0 10px #ef4444,
-        0 0 25px #dc2626;
-}
-
-
-/* OLHO */
-
-.olho {
-    position: absolute;
-
-    width: 10px;
-    height: 10px;
-
-    top: 8px;
-    left: 14px;
-
-    background: white;
-
-    border-radius: 50%;
-
-    box-shadow: 0 0 8px white;
-}
-
-
-/* DASH */
-
-.jogador.dash {
-    transform: scale(1.3);
-}
-
-
-/* DANO */
-
-.jogador.hit {
-    filter: brightness(3);
-}
-
-
-/* OBSTÁCULOS */
-
-.obstaculo {
-    position: absolute;
-
-    background: #334155;
-
-    border: 3px solid #64748b;
-
-    border-radius: 8px;
-
-    z-index: 3;
-
-    box-shadow: 0 0 10px rgba(148, 163, 184, 0.2);
-}
-
-
-/* Obstáculo 1 */
-
-.obstaculo1 {
-    width: 150px;
-    height: 35px;
-
-    left: 375px;
-    top: 100px;
-}
-
-
-/* Obstáculo 2 */
-
-.obstaculo2 {
-    width: 35px;
-    height: 150px;
-
-    left: 250px;
-    top: 210px;
-}
-
-
-/* Obstáculo 3 */
-
-.obstaculo3 {
-    width: 35px;
-    height: 150px;
-
-    right: 250px;
-    top: 210px;
-}
-
-
-/* Obstáculo 4 */
-
-.obstaculo4 {
-    width: 150px;
-    height: 35px;
-
-    left: 375px;
-    bottom: 80px;
-}
-
-
-/* TIROS */
-
-.projetil {
-    position: absolute;
-
-    width: 13px;
-    height: 13px;
-
-    border-radius: 50%;
-
-    z-index: 15;
-}
-
-.projetil-azul {
     background: #38bdf8;
 
     box-shadow:
-        0 0 10px #38bdf8,
-        0 0 20px #0284c7;
+        0 0 10px #38bdf8;
 }
 
-.projetil-vermelho {
+
+.tiroVermelho {
+
     background: #fb7185;
 
     box-shadow:
-        0 0 10px #fb7185,
-        0 0 20px #e11d48;
+        0 0 10px #fb7185;
 }
 
 
-/* PARTÍCULAS */
+/* =========================
+   TELA FINAL
+========================= */
 
-.particula {
+#telaFinal {
+
     position: absolute;
 
-    width: 7px;
-    height: 7px;
+    top: 0;
+    left: 0;
 
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
 
-    pointer-events: none;
-
-    z-index: 30;
-
-    animation: explodir 0.5s forwards;
-}
-
-@keyframes explodir {
-
-    0% {
-        opacity: 1;
-        transform: translate(0, 0) scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform:
-            translate(var(--x), var(--y))
-            scale(0);
-    }
-}
-
-
-/* TELA DE VITÓRIA */
-
-#fim {
-    position: absolute;
-
-    inset: 0;
+    background: rgba(0,0,0,0.85);
 
     display: none;
 
     align-items: center;
+
     justify-content: center;
 
     flex-direction: column;
 
-    background: rgba(0, 0, 0, 0.9);
-
     z-index: 100;
 }
 
-.trofeu {
-    font-size: 70px;
-}
 
-#vencedor {
-    margin: 15px;
+#textoVitoria {
+
+    font-size: 40px;
 
     color: #facc15;
 
-    font-size: 35px;
-
-    text-shadow: 0 0 15px #facc15;
-}
-
-#resultado {
     margin-bottom: 20px;
-
-    color: #cbd5e1;
 }
 
-
-/* BOTÃO */
 
 button {
-    padding: 14px 25px;
+
+    padding: 15px 30px;
 
     border: none;
 
@@ -380,134 +323,81 @@ button {
 
     color: #111827;
 
-    font-size: 17px;
+    font-size: 18px;
 
     font-weight: bold;
 
     cursor: pointer;
 }
 
+
 button:hover {
+
     background: #fde047;
 
     transform: scale(1.05);
 }
 
 
-/* CONTROLES */
+/* =========================
+   CONTROLES
+========================= */
 
 .controles {
+
     display: flex;
 
     justify-content: center;
 
-    gap: 25px;
+    gap: 40px;
 
-    margin-top: 12px;
+    margin-top: 10px;
 
     flex-wrap: wrap;
 }
 
-.controle {
-    min-width: 260px;
 
-    padding: 12px 20px;
+.controles div {
 
-    background: #0f172a;
+    background: #1e293b;
 
-    border: 1px solid #334155;
+    border: 1px solid #475569;
+
+    padding: 15px 30px;
 
     border-radius: 10px;
 }
 
-.controle h3 {
-    margin-bottom: 7px;
-}
 
-.controle p {
-    margin: 4px;
+.controles p {
 
-    color: #94a3b8;
-}
+    margin-top: 5px;
 
-.azul-box {
-    box-shadow: 0 0 15px rgba(14, 165, 233, 0.15);
-}
-
-.red-box {
-    box-shadow: 0 0 15px rgba(239, 68, 68, 0.15);
+    color: #cbd5e1;
 }
 
 
-/* MENSAGEM */
-
-#mensagem {
-    position: fixed;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    font-size: 60px;
-    font-weight: bold;
-
-    color: white;
-
-    text-shadow: 0 0 20px #facc15;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    z-index: 200;
-}
-
-#mensagem.mostrar {
-    animation: mensagem 0.8s ease;
-}
-
-@keyframes mensagem {
-
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5);
-    }
-
-    40% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.2);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
-
-
-/* CELULAR */
+/* =========================
+   CELULAR
+========================= */
 
 @media (max-width: 700px) {
 
-    header h1 {
-        font-size: 25px;
-    }
+    .placar {
 
-    .hud {
         flex-direction: column;
-        gap: 8px;
+
+        gap: 10px;
     }
 
-    .player-info {
-        width: 80%;
+    .barra {
+
+        width: 200px;
     }
 
-    .score {
-        order: -1;
-    }
+    #arena {
 
-    #game {
         height: 450px;
     }
+
 }
