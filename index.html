@@ -4,70 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Batalha 2D - 2 Jogadores</title>
+    <title>Neon Battle 2D</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>⚔️ BATALHA 2D</h1>
+    <header>
+        <h1>⚡ NEON BATTLE ⚡</h1>
+        <p>Derrote seu adversário e domine a arena!</p>
+    </header>
 
-    <p class="info">
-        Jogador 1: WASD + F |
-        Jogador 2: Setas + L
-    </p>
+    <div class="hud">
 
-    <div id="game">
-
-        <!-- Vida do jogador 1 -->
-        <div class="vida-container vida1">
-            <div id="vida1"></div>
+        <div class="player-info blue-info">
+            <span>🔵 JOGADOR 1</span>
+            <div class="health-bar">
+                <div id="vida1"></div>
+            </div>
         </div>
 
-        <!-- Vida do jogador 2 -->
-        <div class="vida-container vida2">
-            <div id="vida2"></div>
+        <div class="score">
+            <span id="placar1">0</span>
+            <b>VS</b>
+            <span id="placar2">0</span>
         </div>
+
+        <div class="player-info red-info">
+            <span>🔴 JOGADOR 2</span>
+            <div class="health-bar">
+                <div id="vida2"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <main id="game">
+
+        <!-- Decoração da arena -->
+        <div class="linha linha1"></div>
+        <div class="linha linha2"></div>
 
         <!-- Obstáculos -->
         <div class="obstaculo obstaculo1"></div>
         <div class="obstaculo obstaculo2"></div>
         <div class="obstaculo obstaculo3"></div>
+        <div class="obstaculo obstaculo4"></div>
 
         <!-- Jogadores -->
-        <div id="jogador1" class="jogador jogador-azul">
-            <div class="olho olho1"></div>
-            <div class="olho olho2"></div>
+        <div id="jogador1" class="jogador azul">
+            <div class="olho"></div>
         </div>
 
-        <div id="jogador2" class="jogador jogador-vermelho">
-            <div class="olho olho1"></div>
-            <div class="olho olho2"></div>
+        <div id="jogador2" class="jogador vermelho">
+            <div class="olho"></div>
         </div>
+
+        <!-- Projéteis aparecem aqui -->
 
         <!-- Tela de vitória -->
         <div id="fim">
-            <h2 id="vencedor"></h2>
-            <button onclick="reiniciar()">Jogar novamente</button>
+
+            <div class="trofeu">🏆</div>
+
+            <h2 id="vencedor">
+                JOGADOR 1 VENCEU!
+            </h2>
+
+            <p id="resultado"></p>
+
+            <button onclick="reiniciar()">
+                ⚔️ JOGAR NOVAMENTE
+            </button>
+
         </div>
 
-    </div>
+    </main>
 
-    <div class="controles">
+    <section class="controles">
 
-        <div>
-            <strong class="azul">🔵 Jogador 1</strong>
-            <p>W A S D = Mover</p>
-            <p>F = Atacar</p>
+        <div class="controle azul-box">
+            <h3>🔵 JOGADOR 1</h3>
+
+            <p><b>W A S D</b> → Mover</p>
+            <p><b>F</b> → Atirar</p>
+            <p><b>G</b> → Dash</p>
         </div>
 
-        <div>
-            <strong class="vermelho">🔴 Jogador 2</strong>
-            <p>↑ ↓ ← → = Mover</p>
-            <p>L = Atacar</p>
+        <div class="controle red-box">
+            <h3>🔴 JOGADOR 2</h3>
+
+            <p><b>↑ ↓ ← →</b> → Mover</p>
+            <p><b>L</b> → Atirar</p>
+            <p><b>K</b> → Dash</p>
         </div>
 
+    </section>
+
+    <div id="mensagem">
+        ⚡ LUTE!
     </div>
 
     <script src="script.js"></script>
